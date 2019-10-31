@@ -1,0 +1,102 @@
+Exercicio 1: Imc
+
+Web.php
+
+
+Route::get('/exerc1', function () {
+   echo 
+   '<form method="get" action="imc">
+        <label> Nome:</label>
+        <input type="text" name="nome">
+        
+        <label> Altura:</label>
+        <input type="number" name="altura">
+        
+        <label> Peso:</label>
+        <input type="number" name="peso">
+        
+        <label> Idade:</label>
+        <input type="number" name="idade">
+        
+        <label> Sexo:</label>
+        <input type="text" name="sexo">
+        
+        
+        <input type="submit">
+   </form>'; 
+});
+
+Route::get('imc', 'Controller@getImc');
+
+
+
+Controller.php
+    function getImc(){
+        $peso = $_GET['peso'];
+        $altura = $_GET['altura'];
+        $imc = ($altura * $altura / $peso);
+        echo '<h1>Seu imc é: '.$imc.'</h1>';
+    }
+}
+
+
+
+
+
+
+Exercicio 2: Soma
+
+Web.php
+
+Route::get('/exerc2', function () {
+   echo 
+   '<form method="get" action="soma">
+        <label> Primeiro Número:</label>
+        <input type="number" name="numero1">
+        <label> Segundo Número:</label>
+        <input type="number" name="numero2">
+        <input type="submit">
+   </form>'; 
+});
+Route::get('soma', 'Controller@getSoma');
+
+
+
+Controller.php
+function getSoma(){
+        $numero1 = $_GET['numero1'];
+        $numero2 = $_GET['numero2'];
+        $soma = ($numero1 + $numero2);
+        echo '<h1>A soma dos números é: '.$soma.'</h1>';
+    }
+
+
+
+
+
+Exercicio 3: Quadrado
+
+Web.php
+
+Route::get('/exerc3', function () {
+   echo 
+   '<form method="get" action="quadrado">
+        <label>Número:</label>
+        <input type="number" name="numero">
+        <input type="submit">
+   </form>'; 
+});
+
+Route::get('quadrado', 'Controller@getQuadrado');
+
+
+
+Controller.php
+
+function getQuadrado(){
+        $numero = $_GET['numero'];
+        $quadrado = ($numero * $numero);
+        echo '<h1>Quadrado: '.$quadrado.'</h1>';
+    }
+
+FIM :)
